@@ -56,6 +56,7 @@ export const fetchStats = (token) => {
 
 export const fetchDetail = (token, country) => {
   return (dispatch) => {
+    dispatch({ type: FETCH_DETAIL, payload: { foundCountry : false} });
     axios
       .get(`${APILINK}/stats/name/${country}`, {
         headers: {

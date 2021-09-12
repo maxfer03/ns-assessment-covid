@@ -60,7 +60,7 @@ export const CountriesTable = () => {
 
   const redirectToCountry = (e) => {
     dispatch(fetchDetail(getToken(), e.row.country))
-    history.push(`app/${e.row.country}`)
+    history.push(`/app/${e.row.country}`)
   }
 
   return (
