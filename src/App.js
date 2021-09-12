@@ -4,7 +4,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import "@fontsource/roboto"
 import { Landing } from "./views/Landing";
+
 
 
 function App() {
