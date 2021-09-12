@@ -8,6 +8,7 @@ import { Landing } from "./views/Landing";
 import { Forbidden } from "./views/Forbidden";
 import { Main } from "./views/Main";
 import { Detail } from "./components/Detail";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       {auth ? (
         <>
+          <Route path = "/app" component = {NavBar}/>
           <Route exact path="/app" component={Main} />
           <Route
             exact

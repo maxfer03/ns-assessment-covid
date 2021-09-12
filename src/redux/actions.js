@@ -1,11 +1,12 @@
 import axios from "axios";
+import { getStats } from "../utils/functions";
 import { APILINK } from "../utils/links";
 
 export const LOGIN_USER = "LOGIN_USER";
 export const REGISTER_USER = "REGISTER_USER";
 export const FETCH_STATS = "FETCH_STATS";
 export const FETCH_DETAIL = "FETCH_DETAIL";
-
+export const SYNC_STATS = "SYNC_STATS";
 export const logInUser = (userInfo) => {
   return (dispatch) => {
     axios.post(`${APILINK}/auth/login`, userInfo).then((res) => {
@@ -89,6 +90,34 @@ export const fetchDetail = (token, country) => {
         };
 
         dispatch({ type: FETCH_DETAIL, payload: formattedDetail });
+      });
+  };
+};
+
+export const syncStats = (token) => {
+  return (dispatch) => {
+    dispatch({ type: SYNC_STATS, payload: true });
+    axios
+      .get(`${APILINK}/stats/sync`, {
+        headers: {
+          "X-JWT-Token": token,
+        },
+      })
+      .then(async (res) => {
+        axios
+          .get(`${APILINK}/stats/all`, {
+            headers: {
+              "X-JWT-Token": token,
+            },
+          })
+          .then((res) => {
+            dispatch({
+              type: FETCH_STATS,
+              payload: { stats: res.data, authorized: true },
+            });
+          });
+        
+        dispatch({ type: SYNC_STATS, payload: false });
       });
   };
 };

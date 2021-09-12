@@ -3,6 +3,7 @@ import {
   FETCH_STATS,
   LOGIN_USER,
   REGISTER_USER,
+  SYNC_STATS,
 } from "./actions";
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
     deaths: { "1M_pop": "", new: 0, total: 0 },
     tests: { "1M_pop": "", total: 0 },
   },
+  syncing: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -44,6 +46,8 @@ const rootReducer = (state = initialState, action) => {
       };
     case FETCH_DETAIL:
       return { ...state, detail: action.payload };
+    case SYNC_STATS: 
+    return {...state, syncing: action.payload}
     default:
       return state;
   }
