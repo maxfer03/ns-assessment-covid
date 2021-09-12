@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getStats } from "../utils/functions";
 import { APILINK } from "../utils/links";
 
 export const LOGIN_USER = "LOGIN_USER";
