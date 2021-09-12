@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Box, Input, Button } from "@material-ui/core";
+import React, { useEffect } from "react";
+import { Box, Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDetail } from "../redux/actions";
 import { getToken } from "../utils/functions";
@@ -16,9 +16,6 @@ export const Detail = ({ countryUrl }) => {
     }
   }, []);
 
-  const handleEdit = (e) => {
-    console.log("pepe");
-  };
 
   return (
     <Box display="flex" flexDirection="column">
