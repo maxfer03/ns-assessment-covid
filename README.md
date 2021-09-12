@@ -18,7 +18,7 @@ $ npm start   -> to run it locally on port 3000
 
 * ~~Register and login Users~~ **DONE ✔**
 
-* Prevent unauthorized users to enter the page
+* ~~Prevent unauthorized users to enter the page~~ **DONE ✔**
 
 * Fetch countries and group them by continent
 
