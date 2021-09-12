@@ -9,6 +9,7 @@ import { Forbidden } from "./views/Forbidden";
 import { Main } from "./views/Main";
 import { Detail } from "./components/Detail";
 import { NavBar } from "./components/NavBar";
+import { Edit } from "./components/Edit";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,11 @@ function App() {
             exact
             path="/app/:country"
             render={({ match }) => <Detail countryUrl={match.params.country} />}
+          />
+          <Route
+            exact
+            path="/app/:country/edit"
+            render={({ match }) => <Edit countryUrl={match.params.country} />}
           />
         </>
       ) : (
