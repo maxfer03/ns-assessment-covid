@@ -1,4 +1,4 @@
-import { LOGIN_USER } from "./actions";
+import { LOGIN_USER, REGISTER_USER } from "./actions";
 
 const initialState = {
   /* token: "", */
@@ -7,7 +7,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_USER:
+    case LOGIN_USER || REGISTER_USER:
       return { ...state, user: action.payload };
     default:
       return state;

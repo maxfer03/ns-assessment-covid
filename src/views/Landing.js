@@ -6,8 +6,8 @@ export const Landing = () => {
   return(
     <div>
         <div>landing</div>
-        <LogIn/>
-        <Register/>
+        <LogIn mode="login"/>
+        <LogIn mode="register"/>
     </div>
     
   )
