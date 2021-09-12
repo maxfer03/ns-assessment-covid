@@ -20,9 +20,9 @@ $ npm start   -> to run it locally on port 3000
 
 * ~~Prevent unauthorized users to enter the page~~ **DONE ✔**
 
-* Fetch countries and group them by continent
+* ~~Fetch countries and group them by continent~~ **DONE ✔**
 
-* Visualize individual stats
+* Search Countries and visualize individual stats
 
 * Edit countries and Update total cases
 
