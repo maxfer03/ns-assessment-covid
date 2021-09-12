@@ -26,7 +26,7 @@ $ npm start   -> to run it locally on port 3000
 
 * Edit countries and Update total cases
 
-* Search Countries
+* ~~Search Countries~~ **DONE ✔**
 
 * ~~Option to sync DB in the UI~~ **DONE ✔**
 
