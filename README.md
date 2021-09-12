@@ -28,7 +28,7 @@ $ npm start   -> to run it locally on port 3000
 
 * Search Countries
 
-* Option to sync DB in the UI
+* ~~Option to sync DB in the UI~~ **DONE ✔**
 
 * Make the app responsive
 

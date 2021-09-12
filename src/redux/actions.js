@@ -63,32 +63,37 @@ export const fetchDetail = (token, country) => {
         },
       })
       .then((res) => {
-        let data = res.data;
-        let formattedDetail = {
-          country: data.country || "No information given",
-          continent: data.continent || "No information given",
-          day: data.day || "Unknown",
-          population: data.population || "No information given",
-          cases: {
-            "1M_pop": data.cases["1M_pop"] || "No information given",
-            active: data.cases.active || "Unknown / None",
-            critical: data.cases.critical || "Unknown / None",
-            new: data.cases.new || "Unknown / None",
-            recovered: data.cases.recovered || "Unknown / None",
-            total: data.cases.cases || "Unknown / None",
-          },
-          deaths: {
-            "1M_pop": data.deaths["1M_pop"] || "Unknown / None",
-            new: data.deaths.new || "No information given",
-            total: data.deaths.total || "Unknown / None",
-          },
-          tests: {
-            "1M_pop": data.tests["1M_pop"] || "Unknown / None",
-            total: data.total || "Unknown / None",
-          },
-        };
+        if (res.data === null) {
+          alert("Country not found!")
+          dispatch({ type: FETCH_DETAIL, payload: { foundCountry : false} });
+        } else {
+          let data = res.data;
+          let formattedDetail = {
+            country: data.country || "No information given",
+            continent: data.continent || "No information given",
+            day: data.day || "Unknown",
+            population: data.population || "No information given",
+            cases: {
+              "1M_pop": data.cases["1M_pop"] || "No information given",
+              active: data.cases.active || "Unknown / None",
+              critical: data.cases.critical || "Unknown / None",
+              new: data.cases.new || "Unknown / None",
+              recovered: data.cases.recovered || "Unknown / None",
+              total: data.cases.cases || "Unknown / None",
+            },
+            deaths: {
+              "1M_pop": data.deaths["1M_pop"] || "Unknown / None",
+              new: data.deaths.new || "No information given",
+              total: data.deaths.total || "Unknown / None",
+            },
+            tests: {
+              "1M_pop": data.tests["1M_pop"] || "Unknown / None",
+              total: data.total || "Unknown / None",
+            },
+          };
 
-        dispatch({ type: FETCH_DETAIL, payload: formattedDetail });
+          dispatch({ type: FETCH_DETAIL, payload: {detail: formattedDetail, foundCountry : true} });
+        }
       });
   };
 };
@@ -115,7 +120,7 @@ export const syncStats = (token) => {
               payload: { stats: res.data, authorized: true },
             });
           });
-        
+
         dispatch({ type: SYNC_STATS, payload: false });
       });
   };

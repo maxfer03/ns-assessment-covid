@@ -1,6 +1,8 @@
+import { Box } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CountriesTable } from "../components/CountriesTable";
+import { Search } from "../components/Search";
 import { fetchStats } from "../redux/actions";
 import { getToken } from "../utils/functions";
 
@@ -29,5 +31,16 @@ export const Main = () => {
         setLoading(false);
     } */
   }, [syncing]);
-  return <div>{loading ? "Loading..." : <CountriesTable />}</div>;
+  return (
+    <div>
+      {loading ? (
+        "Loading..."
+      ) : (
+        <Box>
+          <Search/>
+          <CountriesTable />
+        </Box>
+      )}
+    </div>
+  );
 };
