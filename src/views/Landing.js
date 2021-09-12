@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { Box, Container, Button } from "@material-ui/core";
 import { LogIn } from "../components/LogIn";
 import { Register } from "../components/Register";
 
 export const Landing = () => {
   return(
-    <div>
+    <Box display= "flex" flexDirection="column" alignItems="center">
         <div>landing</div>
-        <LogIn mode="login"/>
-        <LogIn mode="register"/>
-    </div>
+        <Box>
+          <LogIn/>
+        </Box>
+
+    </Box>
     
   )
   

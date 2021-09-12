@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   TextField,
   Box,
@@ -9,18 +9,22 @@ import {
   Container,
   Button,
 } from "@material-ui/core";
-import { logInUser, registerUser } from "../redux/actions";
+import { fetchStats, logInUser, registerUser } from "../redux/actions";
+import { useHistory } from "react-router";
 
-export const LogIn = ({ mode }) => {
-  const dispatch = useDispatch();
+export const LogIn = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const userInitialState = {
     username: "",
     password: "",
   };
   const [user, setUser] = useState(userInitialState);
-
-
+  const auth = useSelector((state) => state.authorized);
   
+  if (auth) {
+    history.push("/app");
+  }
   
   const handleChange = (e) => {
     setUser({
@@ -29,7 +33,7 @@ export const LogIn = ({ mode }) => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (mode) => {
     switch (mode) {
       case "login":
         dispatch(logInUser(user));
@@ -42,11 +46,12 @@ export const LogIn = ({ mode }) => {
         break;
     }
     setUser(userInitialState);
+    history.push("/app")
   };
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <Box>{mode === "login" ? "Log In" : "Register"}</Box>
+      <Box>Enter</Box>
       <FormControl>
         <InputLabel htmlFor="username">Username</InputLabel>
         <Input
@@ -64,12 +69,14 @@ export const LogIn = ({ mode }) => {
           onChange={(e) => handleChange(e)}
         />
       </FormControl>
-      <Button onClick={() => handleSubmit()}>
-        {mode === "login" ? "Log In" : "Register"}
+      <Box display="flex" justifyContent = "center">
+      <Button onClick={() => handleSubmit("login")}>
+        Login
       </Button>
-      {/* <TextField id="standard-basic" label="Username" type="text" required = 'true' />
-        <TextField id="standard-basic" label="Password" type="password" required = 'true'/>
-        <Input type = "submit"/> */}
+      <Button onClick={() => handleSubmit("register")}>
+        Register
+      </Button>
+      </Box>
     </Box>
   );
 };
