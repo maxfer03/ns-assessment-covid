@@ -16,7 +16,7 @@ $ npm start   -> to run it locally on port 3000
 
 ### Requirements
 
-* _Register and login Users_ **IN PROGRESS**
+* ~~Register and login Users~~ **DONE ✔**
 
 * Prevent unauthorized users to enter the page
 
