@@ -1,11 +1,51 @@
-# Getting Started with Create React App
+# NicaSource Assessment - Front end
 
+## Developed with Javascript
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API used: [personal Covid Api](https://vast-basin-26481.herokuapp.com/) [(check out the repo)](https://github.com/maxfer03/ns-assessment-covid-backend)
+Styles creted with Material UI
 
-## Available Scripts
+To run:
 
-In the project directory, you can run:
+```
+$ npm install -> to install dependencies
+$ npm start   -> to run it locally on port 3000 
+```
+---
+## TO DO =
 
+### Requirements
+
+* _Register and login Users_ **IN PROGRESS**
+
+* Prevent unauthorized users to enter the page
+
+* Fetch countries and group them by continent
+
+* Visualize individual stats
+
+* Edit countries and Update total cases
+
+* Search Countries
+
+* Option to sync DB in the UI
+
+* Make the app responsive
+
+* ~~The source code must be a GitHub repository publicly available containing frontend code only.~~ **DONE ✔**
+
+* ~~The repository should include a README file with all documentation necessary to run the project locally.~~ **DONE ✔**
+
+
+
+### Optional
+
+* Unit tests
+
+* Deploy your SPA on any cloud provider or hosting platform 
+
+---
+## Other create-react-app commands and info
 ### `npm start`
 
 Runs the app in the development mode.\
