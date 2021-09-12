@@ -7,6 +7,7 @@ import { fetchStats } from "./redux/actions";
 import { Landing } from "./views/Landing";
 import { Forbidden } from "./views/Forbidden";
 import { Main } from "./views/Main";
+import { Detail } from "./components/Detail";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,14 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Landing} />
       {auth ? (
-        <Route exact path="/app" component={Main} />
+        <>
+          <Route exact path="/app" component={Main} />
+          <Route
+            exact
+            path="/app/:country"
+            render={({ match }) => <Detail countryUrl={match.params.country} />}
+          />
+        </>
       ) : (
         <Route path="/app" component={Forbidden} />
       )}

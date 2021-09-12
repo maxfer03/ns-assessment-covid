@@ -22,7 +22,7 @@ $ npm start   -> to run it locally on port 3000
 
 * ~~Fetch countries and group them by continent~~ **DONE ✔**
 
-* Search Countries and visualize individual stats
+* ~~Search Countries and visualize individual stats~~ **DONE ✔**
 
 * Edit countries and Update total cases
 

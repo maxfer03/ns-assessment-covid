@@ -1,9 +1,12 @@
 import React from "react";
 import { DataGrid } from '@material-ui/data-grid';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { fetchDetail } from "../redux/actions";
+import { getToken } from "../utils/functions";
 
 export const CountriesTable = () => {
+    const dispatch = useDispatch()
     const history = useHistory()
     const stats = useSelector(state => state.stats)
     stats.forEach(e => {
@@ -56,6 +59,7 @@ export const CountriesTable = () => {
   ];
 
   const redirectToCountry = (e) => {
+    dispatch(fetchDetail(getToken(), e.row.country))
     history.push(`app/${e.row.country}`)
   }
 
