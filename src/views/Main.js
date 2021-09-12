@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DisplayStats } from "../components/DisplayStats";
+import { CountriesTable } from "../components/CountriesTable";
 import { fetchStats } from "../redux/actions";
 import { getToken } from "../utils/functions";
 
@@ -15,8 +15,6 @@ export const Main = () => {
     }
   }, []);
   return <div>
-      <div>
-          <DisplayStats stats={stats}/>
-      </div>
+      <CountriesTable/>
   </div>;
 };
