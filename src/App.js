@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import { useHistory } from "react-router";
+import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStats } from "./redux/actions";
 import { Landing } from "./views/Landing";
@@ -14,7 +13,6 @@ import { NavBarSpace } from "./components/NavBarSpace";
 function App() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.authorized);
-  const history = useHistory();
   const userToken = localStorage.getItem("token");
   console.log(userToken);
   useEffect(() => {

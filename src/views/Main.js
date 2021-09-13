@@ -12,8 +12,6 @@ export const Main = () => {
   const stats = useSelector((state) => state.stats);
   const syncing = useSelector((state) => state.syncing);
   const [loading, setLoading] = useState(true);
-  let totalCases;
-
   useEffect(() => {
     console.log(stats);
     if (syncing) {
@@ -21,7 +19,7 @@ export const Main = () => {
     }
     if (!syncing) {
       setLoading(false);
-      if (stats.length == 0) {
+      if (stats.length === 0) {
         dispatch(fetchStats(token));
       }
     }

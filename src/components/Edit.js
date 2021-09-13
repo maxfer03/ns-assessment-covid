@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  TextField,
-  a,
-  FormControl,
-  FormHelperText,
-} from "@material-ui/core";
+import { Box, Button, TextField } from "@material-ui/core";
 import axios from "axios";
 import { APILINK } from "../utils/links";
 import { formatSentence, getToken } from "../utils/functions";
@@ -58,6 +51,8 @@ export const Edit = ({ countryUrl }) => {
           ...tests,
           [e.target.id]: e.target.value,
         });
+        break;
+      default:
         break;
     }
   };
@@ -245,7 +240,7 @@ export const Edit = ({ countryUrl }) => {
           value={tests.teststotal}
         />
       </Box>
-      <Box position ='fixed' top ='90%' bgcolor ='white'>
+      <Box position="fixed" top="90%" bgcolor="white">
         <Button
           variant="outlined"
           color="primary"

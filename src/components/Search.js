@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-  TextField,
-} from "@material-ui/core";
+import { Box, FormControl, Button, TextField } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDetail } from "../redux/actions";
 import { useHistory } from "react-router";
@@ -32,20 +25,19 @@ export const Search = () => {
   };
 
   return (
-    <Box display="flex" alignItems="center" margin={1} justifyContent ="center">
+    <Box display="flex" alignItems="center" margin={1} justifyContent="center">
       <Box margin={1}>
-      <FormControl>
-        <TextField
-          /* id="search" */
-          value={input}
-          onChange={(e) => handleInput(e)}
-          label="Search a country"
-          variant="outlined"
-        />
-      </FormControl>
+        <FormControl>
+          <TextField
+            /* id="search" */
+            value={input}
+            onChange={(e) => handleInput(e)}
+            label="Search a country"
+            variant="outlined"
+          />
+        </FormControl>
       </Box>
       <Button
-        
         height="100%"
         variant="outlined"
         color="primary"

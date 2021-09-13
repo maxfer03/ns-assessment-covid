@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { Box, Container, Button } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { LogIn } from "../components/LogIn";
-import { Register } from "../components/Register";
 
 export const Landing = () => {
   return (

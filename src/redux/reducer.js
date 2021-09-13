@@ -28,7 +28,7 @@ const initialState = {
     tests: { "1M_pop": "", total: 0 },
   },
   foundCountry: false,
-  syncing: false
+  syncing: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -46,9 +46,13 @@ const rootReducer = (state = initialState, action) => {
         authorized: action.payload.authorized,
       };
     case FETCH_DETAIL:
-      return { ...state, detail: action.payload.detail || state.detail, foundCountry: action.payload.foundCountry };
-    case SYNC_STATS: 
-    return {...state, syncing: action.payload}
+      return {
+        ...state,
+        detail: action.payload.detail || state.detail,
+        foundCountry: action.payload.foundCountry,
+      };
+    case SYNC_STATS:
+      return { ...state, syncing: action.payload };
     default:
       return state;
   }

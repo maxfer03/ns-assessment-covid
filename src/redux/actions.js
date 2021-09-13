@@ -61,7 +61,7 @@ export const fetchStats = (token) => {
       })
       .then((res) => {
         let authorized = true;
-        if (res.status != 200) {
+        if (res.status !== 200) {
           authorized = false;
         }
         dispatch({

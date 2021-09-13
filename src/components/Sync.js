@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Button, ButtonGroup } from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { fetchStats, syncStats } from "../redux/actions";
+import { syncStats } from "../redux/actions";
 import { getToken } from "../utils/functions";
 import { useHistory } from "react-router";
 

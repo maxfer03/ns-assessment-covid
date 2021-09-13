@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import shadows from "@material-ui/core/styles/shadows";
-import {
-  TextField,
-  Box,
-  FormControl,
-  Input,
-  InputLabel,
-  Container,
-  Button,
-} from "@material-ui/core";
-import { Palette } from "@material-ui/core/styles/createPalette";
-import { fetchStats, logInUser, registerUser } from "../redux/actions";
+import { TextField, Box, FormControl, Button } from "@material-ui/core";
 import { useHistory } from "react-router";
-
+import { logInUser, registerUser } from "../redux/actions";
 export const LogIn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
