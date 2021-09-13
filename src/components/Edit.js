@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import {
   Box,
   Button,
-  Input,
-  InputLabel,
+  TextField,
+  a,
   FormControl,
   FormHelperText,
 } from "@material-ui/core";
 import axios from "axios";
 import { APILINK } from "../utils/links";
-import { getToken } from "../utils/functions";
+import { formatSentence, getToken } from "../utils/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStats } from "../redux/actions";
 import { useHistory } from "react-router";
@@ -17,6 +17,7 @@ import { useHistory } from "react-router";
 export const Edit = ({ countryUrl }) => {
   const history = useHistory();
   const token = getToken();
+  const formated = formatSentence(countryUrl);
   const dispatch = useDispatch();
   const stats = useSelector((state) => state.stats);
   const previousInfo = useSelector((state) => state.detail);
@@ -131,85 +132,129 @@ export const Edit = ({ countryUrl }) => {
   };
 
   return (
-    <Box>
-      edit {countryUrl}
-      <Box>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      fontSize="1.5em"
+    >
+      <Box fontSize="1.5em">Edit {formated}</Box>
+      <Box
+        width="80%"
+        display="flex"
+        flexDirection="column"
+        padding={2}
+        border={2}
+        borderColor="primary.main"
+        borderRadius="borderRadius"
+        boxShadow={2}
+        marginBottom={2}
+      >
         {" "}
         Cases
-        <InputLabel htmlFor="casesactive">Active</InputLabel>
-        <Input
+        <TextField
+          label="Active"
           id="casesactive"
           onChange={(e) => handleEdit(e)}
           value={cases.casesactive}
         />
-        <InputLabel htmlFor="casescritical">Critical</InputLabel>
-        <Input
+        <TextField
+          label="Critical"
           id="casescritical"
           onChange={(e) => handleEdit(e)}
           value={cases.casescritical}
         />
-        <InputLabel htmlFor="casesnew">New</InputLabel>
-        <Input
+        <TextField
+          label="New"
           id="casesnew"
           onChange={(e) => handleEdit(e)}
           value={cases.casesnew}
         />
-        <InputLabel htmlFor="casesrecovered">Recovered</InputLabel>
-        <Input
+        <TextField
+          label="Recovered"
           id="casesrecovered"
           onChange={(e) => handleEdit(e)}
           value={cases.casesrecovered}
         />
-        <InputLabel htmlFor="cases1M_pop">Per 1 million</InputLabel>
-        <Input
+        <TextField
+          label="Per 1 million"
           id="cases1M_pop"
           onChange={(e) => handleEdit(e)}
           value={cases["cases1M_pop"]}
         />
-        <InputLabel htmlFor="casestotal">Total</InputLabel>
-        <Input
+        <TextField
+          label="Total"
           id="casestotal"
           onChange={(e) => handleEdit(e)}
           value={cases.casestotal}
         />
       </Box>
-      <Box>
+      <Box
+        width="80%"
+        display="flex"
+        flexDirection="column"
+        padding={2}
+        border={2}
+        borderColor="primary.main"
+        borderRadius="borderRadius"
+        boxShadow={2}
+        marginBottom={2}
+      >
         Deaths
-        <InputLabel htmlFor="deathsnew">New</InputLabel>
-        <Input
+        <TextField
+          label="New"
           id="deathsnew"
           onChange={(e) => handleEdit(e)}
           value={deaths.deathsnew}
         />
-        <InputLabel htmlFor="deaths1M_pop">Per 1 million</InputLabel>
-        <Input
+        <TextField
+          label="Per 1 million"
           id="deaths1M_pop"
           onChange={(e) => handleEdit(e)}
           value={deaths["deaths1M_pop"]}
         />
-        <InputLabel htmlFor="deathstotal">Total</InputLabel>
-        <Input
+        <TextField
+          label="Total"
           id="deathstotal"
           onChange={(e) => handleEdit(e)}
           value={deaths.deathstotal}
         />
       </Box>
-      <Box>
+      <Box
+        width="80%"
+        display="flex"
+        flexDirection="column"
+        padding={2}
+        border={2}
+        borderColor="primary.main"
+        borderRadius="borderRadius"
+        boxShadow={2}
+        marginBottom={10}
+      >
         Tests
-        <InputLabel htmlFor="tests1M_pop">Per 1 million</InputLabel>
-        <Input
+        <TextField
+          label="Per 1 million"
           id="tests1M_pop"
           onChange={(e) => handleEdit(e)}
           value={tests["tests1M_pop"]}
         />
-        <InputLabel htmlFor="teststotal">Total</InputLabel>
-        <Input
+        <TextField
+          label="Total"
           id="teststotal"
           onChange={(e) => handleEdit(e)}
           value={tests.teststotal}
         />
       </Box>
-      <Button onClick={() => handleCountryEdit()}>Update</Button>
+      <Box position ='fixed' top ='90%' bgcolor ='white'>
+        <Button
+          variant="outlined"
+          color="primary"
+          size="large"
+          onClick={() => handleCountryEdit()}
+        >
+          Update
+        </Button>
+      </Box>
     </Box>
   );
 };
