@@ -3,8 +3,13 @@
 ## Developed with Javascript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-API used: [personal Covid Api](https://vast-basin-26481.herokuapp.com/) [(check out the repo)](https://github.com/maxfer03/ns-assessment-covid-backend)
+Deployed at: https://ns-assessment-covid.vercel.app/
+API used: https://vast-basin-26481.herokuapp.com/ [(check out the repo)](https://github.com/maxfer03/ns-assessment-covid-backend)
 Styles creted with Material UI
+
+I took advantage of the fact that I was allowed to use frameworks and decided to try out Material UI, which I was quite interested for a while. I can say it wasa  great choice, creating styles with this framework was a breeze!
+
+Aside from React, I also used Redux to handle global states.
 
 To run:
 
@@ -39,13 +44,12 @@ $ npm start   -> to run it locally on port 3000
 
 - ~~The repository should include a README file with all documentation necessary to run the project locally.~~ **DONE ✔**
 
-- Last thing to do: some  validations in the login/register to improve user experience.
 
 ### Optional
 
 - Unit tests
 
-- Deploy your SPA on any cloud provider or hosting platform
+- ~~Deploy your SPA on any cloud provider or hosting platform~~ **DONE ✔**
 
 ---
 
