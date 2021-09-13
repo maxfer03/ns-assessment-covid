@@ -89,7 +89,7 @@ export const fetchDetail = (token, country) => {
             },
             tests: {
               "1M_pop": data.tests["1M_pop"] || "Unknown / None",
-              total: data.total || "Unknown / None",
+              total: data.tests.total || "Unknown / None",
             },
           };
 

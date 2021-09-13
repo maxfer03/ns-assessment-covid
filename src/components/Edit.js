@@ -7,8 +7,16 @@ import {
   FormControl,
   FormHelperText,
 } from "@material-ui/core";
+import axios from "axios";
+import { APILINK } from "../utils/links";
+import { getToken } from "../utils/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStats } from "../redux/actions";
 
 export const Edit = ({ countryUrl }) => {
+  const token = getToken();
+  const dispatch = useDispatch();
+  const previousInfo = useSelector((state) => state.detail);
   const [cases, setCases] = useState({
     casesactive: "",
     casescritical: "",
@@ -49,6 +57,59 @@ export const Edit = ({ countryUrl }) => {
         break;
     }
   };
+
+  const handleCountryEdit = () => {
+    let cleanCases = previousInfo.cases;
+    let cleanDeaths = previousInfo.deaths;
+    let cleanTests = previousInfo.tests;
+    for (let key in cases) {
+      console.log(cases[key]);
+      if (cases[key].length > 0) {
+        cleanCases[key.slice(5)] = cases[key];
+      } else {
+        continue;
+      }
+    }
+    for (let key in deaths) {
+      if (deaths[key].length > 0) {
+        cleanDeaths[key.slice(6)] = deaths[key];
+      } else {
+        continue;
+      }
+    }
+    for (let key in tests) {
+      if (tests[key].length > 0) {
+        cleanTests[key.slice(5)] = tests[key];
+      } else {
+        continue;
+      }
+    }
+    const newInfo = {
+      cases: cleanCases,
+      deaths: cleanDeaths,
+      tests: cleanTests,
+    };
+    for (let key in newInfo) {
+      for (let subkey in newInfo[key]) {
+        if (newInfo[key][subkey] === "Unknown / None") {
+          newInfo[key][subkey] = null;
+        }
+      }
+    }
+    console.log(newInfo);
+
+    axios
+      .post(`${APILINK}/stats/edit/${countryUrl}`, newInfo, {
+        headers: {
+          "X-JWT-Token": token,
+        },
+      })
+      .then((res) => {
+        dispatch(fetchStats(token))
+        alert("updated");
+      });
+  };
+
   return (
     <Box>
       edit {countryUrl}
@@ -128,7 +189,7 @@ export const Edit = ({ countryUrl }) => {
           value={tests.teststotal}
         />
       </Box>
-      <Button>Update</Button>
+      <Button onClick={() => handleCountryEdit()}>Update</Button>
     </Box>
   );
 };
