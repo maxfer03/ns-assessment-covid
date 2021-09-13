@@ -13,3 +13,4 @@ export const formatSentence = (sentence) => {
   let formattedName = formattedNameWords.join(" ");
   return formattedName;
 };
+
