@@ -1,6 +1,7 @@
 # NicaSource Assessment - Front end
 
 ## Developed with Javascript
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 API used: [personal Covid Api](https://vast-basin-26481.herokuapp.com/) [(check out the repo)](https://github.com/maxfer03/ns-assessment-covid-backend)
 Styles creted with Material UI
@@ -9,43 +10,45 @@ To run:
 
 ```
 $ npm install -> to install dependencies
-$ npm start   -> to run it locally on port 3000 
+$ npm start   -> to run it locally on port 3000
 ```
+
 ---
+
 ## TO DO =
 
 ### Requirements
 
-* ~~Register and login Users~~ **DONE ✔**
+- ~~Register and login Users~~ **DONE ✔**
 
-* ~~Prevent unauthorized users to enter the page~~ **DONE ✔**
+- ~~Prevent unauthorized users to enter the page~~ **DONE ✔**
 
-* ~~Fetch countries and group them by continent~~ **DONE ✔**
+- ~~Fetch countries and group them by continent~~ **DONE ✔**
 
-* ~~Search Countries and visualize individual stats~~ **DONE ✔**
+- ~~Search Countries and visualize individual stats~~ **DONE ✔**
 
-* _Edit countries and Update total cases_ **DONE ✔**
+- ~~Edit countries and Update total cases~~ **DONE ✔**
 
-* ~~Search Countries~~ **DONE ✔**
+- ~~Search Countries~~ **DONE ✔**
 
-* ~~Option to sync DB in the UI~~ **DONE ✔**
+- ~~Option to sync DB in the UI~~ **DONE ✔**
 
-* Make the app responsive
+- ~~Make the app responsive~~ **DONE ✔**
 
-* ~~The source code must be a GitHub repository publicly available containing frontend code only.~~ **DONE ✔**
+- ~~The source code must be a GitHub repository publicly available containing frontend code only.~~ **DONE ✔**
 
-* ~~The repository should include a README file with all documentation necessary to run the project locally.~~ **DONE ✔**
-
-
+- ~~The repository should include a README file with all documentation necessary to run the project locally.~~ **DONE ✔**
 
 ### Optional
 
-* Unit tests
+- Unit tests
 
-* Deploy your SPA on any cloud provider or hosting platform 
+- Deploy your SPA on any cloud provider or hosting platform
 
 ---
+
 ## Other create-react-app commands and info
+
 ### `npm start`
 
 Runs the app in the development mode.\
