@@ -8,28 +8,46 @@ export const FETCH_DETAIL = "FETCH_DETAIL";
 export const SYNC_STATS = "SYNC_STATS";
 export const logInUser = (userInfo) => {
   return (dispatch) => {
-    axios.post(`${APILINK}/auth/login`, userInfo).then((res) => {
-      localStorage.setItem("token", res.data.token.token);
-      dispatch({
-        type: LOGIN_USER,
-        payload: { username: userInfo.username, authorized: true },
-      });
-    });
+    axios.post(`${APILINK}/auth/login`, userInfo).then(
+      (res) => {
+        localStorage.setItem("token", res.data.token.token);
+        dispatch({
+          type: LOGIN_USER,
+          payload: { username: userInfo.username, authorized: true },
+        });
+      },
+      (error) => {
+        alert("Invalid username or password.");
+        dispatch({
+          type: LOGIN_USER,
+          payload: { username: "", authorized: false },
+        });
+      }
+    );
   };
 };
 
 export const registerUser = (userInfo) => {
   return (dispatch) => {
-    axios.post(`${APILINK}/auth/signup`, userInfo).then((res) => {
-      localStorage.setItem("token", res.data.token.token);
-      dispatch({
-        type: LOGIN_USER,
-        payload: {
-          username: userInfo.username,
-          authorized: true /* token: res.data.token.token */,
-        },
-      });
-    });
+    axios.post(`${APILINK}/auth/signup`, userInfo).then(
+      (res) => {
+        localStorage.setItem("token", res.data.token.token);
+        dispatch({
+          type: LOGIN_USER,
+          payload: {
+            username: userInfo.username,
+            authorized: true /* token: res.data.token.token */,
+          },
+        });
+      },
+      (error) => {
+        alert("Invalid username or password.");
+        dispatch({
+          type: LOGIN_USER,
+          payload: { username: "", authorized: false },
+        });
+      }
+    );
   };
 };
 
@@ -56,7 +74,7 @@ export const fetchStats = (token) => {
 
 export const fetchDetail = (token, country) => {
   return (dispatch) => {
-    dispatch({ type: FETCH_DETAIL, payload: { foundCountry : false} });
+    dispatch({ type: FETCH_DETAIL, payload: { foundCountry: false } });
     axios
       .get(`${APILINK}/stats/name/${country}`, {
         headers: {
@@ -65,8 +83,8 @@ export const fetchDetail = (token, country) => {
       })
       .then((res) => {
         if (res.data === null) {
-          alert("Country not found!")
-          dispatch({ type: FETCH_DETAIL, payload: { foundCountry : false} });
+          alert("Country not found!");
+          dispatch({ type: FETCH_DETAIL, payload: { foundCountry: false } });
         } else {
           let data = res.data;
           let formattedDetail = {
@@ -93,7 +111,10 @@ export const fetchDetail = (token, country) => {
             },
           };
 
-          dispatch({ type: FETCH_DETAIL, payload: {detail: formattedDetail, foundCountry : true} });
+          dispatch({
+            type: FETCH_DETAIL,
+            payload: { detail: formattedDetail, foundCountry: true },
+          });
         }
       });
   };

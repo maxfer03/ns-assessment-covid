@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import shadows from "@material-ui/core/styles/shadows";
 import {
@@ -24,9 +24,11 @@ export const LogIn = () => {
   const [user, setUser] = useState(userInitialState);
   const auth = useSelector((state) => state.authorized);
 
-  if (auth) {
+  /*   useEffect(() => { */
+  if (auth === true) {
     history.push("/app");
   }
+  /*   }, [auth]); */
 
   const handleChange = (e) => {
     setUser({
@@ -48,7 +50,9 @@ export const LogIn = () => {
         break;
     }
     setUser(userInitialState);
-    history.push("/app");
+    if (auth === true) {
+      history.push("/app");
+    }
   };
 
   return (
