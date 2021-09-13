@@ -39,6 +39,8 @@ $ npm start   -> to run it locally on port 3000
 
 - ~~The repository should include a README file with all documentation necessary to run the project locally.~~ **DONE ✔**
 
+- Last thing to do: some  validations in the login/register to improve user experience.
+
 ### Optional
 
 - Unit tests
