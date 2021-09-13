@@ -64,7 +64,7 @@ export const LogIn = () => {
     >
       <Box display="flex" flexDirection="column" justifyContent="space-between">
         <FormControl>
-          <Box marginBottom ={1}>
+          <Box marginBottom={1}>
             <TextField
               id="username"
               value={user.username}

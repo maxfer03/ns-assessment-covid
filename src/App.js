@@ -9,6 +9,7 @@ import { Main } from "./views/Main";
 import { Detail } from "./components/Detail";
 import { NavBar } from "./components/NavBar";
 import { Edit } from "./components/Edit";
+import { NavBarSpace } from "./components/NavBarSpace";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
       {auth ? (
         <>
           <Route path="/app" component={NavBar} />
+          <Route path="/app" component={NavBarSpace} />
           <Route exact path="/app" component={Main} />
           <Route
             exact

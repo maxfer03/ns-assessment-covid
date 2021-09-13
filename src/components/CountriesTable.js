@@ -64,7 +64,7 @@ export const CountriesTable = () => {
   }
 
   return (
-    <div style={{ height: 600, width: '100%' }}>
+    <div style={{ height: 545, width: '100%' }}>
       <DataGrid
         rows={stats}
         columns={columns}
