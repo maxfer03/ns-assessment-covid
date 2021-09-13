@@ -16,12 +16,14 @@ export const Search = () => {
 
   useEffect(() => {
     if (found) {
-      history.push(`/app/${input}`);
+      history.push(`/app/${input.toLowerCase()}`);
     }
   }, [found]);
 
   const handleSearch = () => {
-    dispatch(fetchDetail(getToken(), input));
+    let formatted = input.replace(/ /g, "-").toLowerCase()
+    console.log(formatted)
+    dispatch(fetchDetail(getToken(), formatted));
   };
 
   return (
