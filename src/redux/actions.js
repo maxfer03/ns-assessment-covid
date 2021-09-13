@@ -80,7 +80,7 @@ export const fetchDetail = (token, country) => {
               critical: data.cases.critical || "Unknown / None",
               new: data.cases.new || "Unknown / None",
               recovered: data.cases.recovered || "Unknown / None",
-              total: data.cases.cases || "Unknown / None",
+              total: data.cases.total || "Unknown / None",
             },
             deaths: {
               "1M_pop": data.deaths["1M_pop"] || "Unknown / None",

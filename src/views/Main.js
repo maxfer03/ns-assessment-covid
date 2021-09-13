@@ -12,8 +12,10 @@ export const Main = () => {
   const stats = useSelector((state) => state.stats);
   const syncing = useSelector((state) => state.syncing);
   const [loading, setLoading] = useState(true);
+  let totalCases;
 
   useEffect(() => {
+    console.log(stats);
     if (syncing) {
       setLoading(true);
     }
@@ -23,13 +25,6 @@ export const Main = () => {
         dispatch(fetchStats(token));
       }
     }
-    /* console.log("testing")
-    switch (syncing) {
-      case true:
-        setLoading(true);
-      case false:
-        setLoading(false);
-    } */
   }, [syncing]);
   return (
     <div>
@@ -37,7 +32,7 @@ export const Main = () => {
         "Loading..."
       ) : (
         <Box>
-          <Search/>
+          <Search />
           <CountriesTable />
         </Box>
       )}

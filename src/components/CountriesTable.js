@@ -24,7 +24,7 @@ export const CountriesTable = () => {
     },
     {
       field: "continent",
-      headerName: "continent",
+      headerName: "Continent",
       width: 200,
       
     },
@@ -51,7 +51,7 @@ export const CountriesTable = () => {
     },
     {
         field: "day",
-        headerName: "Last updated at",
+        headerName: "Oficially updated",
         type: "string",
         width: 200,
         
@@ -70,8 +70,6 @@ export const CountriesTable = () => {
         columns={columns}
         pageSize={8}
         onRowClick = {(e) => redirectToCountry(e)}
-        /* checkboxSelection
-        disableSelectionOnClick */
       />
     </div>
   );

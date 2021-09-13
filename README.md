@@ -24,7 +24,7 @@ $ npm start   -> to run it locally on port 3000
 
 * ~~Search Countries and visualize individual stats~~ **DONE ✔**
 
-* _Edit countries and Update total cases_ **IN PROGRESS** (need to update global cases)
+* _Edit countries and Update total cases_ **DONE ✔**
 
 * ~~Search Countries~~ **DONE ✔**
 

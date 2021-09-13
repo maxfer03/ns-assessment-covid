@@ -12,10 +12,13 @@ import { APILINK } from "../utils/links";
 import { getToken } from "../utils/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStats } from "../redux/actions";
+import { useHistory } from "react-router";
 
 export const Edit = ({ countryUrl }) => {
+  const history = useHistory();
   const token = getToken();
   const dispatch = useDispatch();
+  const stats = useSelector((state) => state.stats);
   const previousInfo = useSelector((state) => state.detail);
   const [cases, setCases] = useState({
     casesactive: "",
@@ -59,6 +62,7 @@ export const Edit = ({ countryUrl }) => {
   };
 
   const handleCountryEdit = () => {
+    let previousTotalCases = previousInfo.cases.total;
     let cleanCases = previousInfo.cases;
     let cleanDeaths = previousInfo.deaths;
     let cleanTests = previousInfo.tests;
@@ -96,8 +100,15 @@ export const Edit = ({ countryUrl }) => {
         }
       }
     }
-    console.log(newInfo);
 
+    let remainder = newInfo.cases.total - previousTotalCases;
+    let global = stats.find((e) => e.country === "all");
+    console.log(global.cases.total);
+    global.cases.total += remainder;
+    console.log(global.cases.total);
+    let globalCases = {
+      cases: global.cases,
+    };
     axios
       .post(`${APILINK}/stats/edit/${countryUrl}`, newInfo, {
         headers: {
@@ -105,8 +116,17 @@ export const Edit = ({ countryUrl }) => {
         },
       })
       .then((res) => {
-        dispatch(fetchStats(token))
-        alert("updated");
+        axios
+          .post(`${APILINK}/stats/edit/all`, globalCases, {
+            headers: {
+              "X-JWT-Token": token,
+            },
+          })
+          .then((res) => {
+            dispatch(fetchStats(token));
+            alert("updated");
+            history.push("/app");
+          });
       });
   };
 
