@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import "@fontsource/roboto";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStats } from "./redux/actions";
@@ -26,7 +25,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       {auth ? (
         <>
-          <Route path = "/app" component = {NavBar}/>
+          <Route path="/app" component={NavBar} />
           <Route exact path="/app" component={Main} />
           <Route
             exact
